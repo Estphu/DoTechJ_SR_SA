@@ -14,8 +14,6 @@ def transcribe_audio(audio_path):
 
     processor = AutoProcessor.from_pretrained(whisper_model_id)
 
-    # pipe = pipeline("automatic-speech-recognition", model=whisper_model_id)
-
     pipe = pipeline(
     "automatic-speech-recognition",
     model=whisper_model_id,
@@ -28,7 +26,7 @@ def transcribe_audio(audio_path):
     torch_dtype=torch_dtype,
     device=device,
     )
-    
+
     result = pipe(audio_path)
     return result["text"]
 
@@ -52,7 +50,6 @@ def summarize_text(text):
     return summary[0]['summary_text']
 
 def main():
-    # st.title("Speech Recognition, Semantic Analysis & Text Summarization")
 
     # Get audio input from the user
     audio_path = input("Enter the path to the audio file: ")
@@ -65,6 +62,7 @@ def main():
     sentiment_result = analyze_sentiment(transcribed_text)
     print(f"Sentiment Analysis: {sentiment_result}")
 
+    # Summarize text
     summarized_result = summarize_text("going along slushy country roads and speaking to damp audiences in draughty schoolrooms day after day for a fortnight he'll have to put in an appearance at some place of worship on sunday morning and he can come to us immediately afterwards")
     print("Summarized Text:", summarized_result)
 
