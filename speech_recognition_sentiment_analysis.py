@@ -63,7 +63,7 @@ def main():
     print(f"Sentiment Analysis: {sentiment_result}")
 
     # Summarize text
-    summarized_result = summarize_text("going along slushy country roads and speaking to damp audiences in draughty schoolrooms day after day for a fortnight he'll have to put in an appearance at some place of worship on sunday morning and he can come to us immediately afterwards")
+    summarized_result = summarize_text(transcribed_text)
     print("Summarized Text:", summarized_result)
 
 if __name__ == "__main__":
